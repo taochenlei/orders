@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh">
+    <head>
+        <meta charset="UTF-8" />
+        <title>订单详情</title>
+        <style>
+            body {
+                font-family: Arial;
+                margin: 20px;
+            }
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                margin-top: 20px;
+            }
+            th,
+            td {
+                border: 1px solid #ccc;
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                background: #f2f2f2;
+                width: 200px;
+            }
+            h1 {
+                margin-bottom: 10px;
+            }
+            a {
+                display: inline-block;
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>订单详情</h1>
+        <a href="index.html">← 返回列表</a>
+
+        <table id="detailTable"></table>
+
+        <script>
+            function getQueryParams() {
+                const urlParams = new URLSearchParams(window.location.search);
+                return {
+                    source: urlParams.get("source"),
+                    index: parseInt(urlParams.get("index"))
+                };
+            }
+
+            const { source, index } = getQueryParams();
+
+            function formatValue(key, value) {
+                if (value == null) return "";
+                if (source === "chinapay") {
+                    if (["orderAmount", "surchargeAmount", "totalAmount"].includes(key)) {
+                        return (value / 100).toFixed(2);
+                    }
+                    if (key === "orderCreatedTime" || key === "orderCompletedTime") {
+                        return value.split("T")[0];
+                    }
+                }
+                if (source === "airpay") {
+                    if (key === "pay_time" || key === "transaction_date" || key === "created_at") {
+                        return value.split("T")[0];
+                    }
+                }
+                return value;
+            }
+
+            function loadData(source, index) {
+                const file =
+                    source === "chinapay"
+                        ? "orders_chinapayments.json"
+                        : "orders_airpayfintech.json";
+
+                fetch(file)
+                    .then((resp) => resp.json())
+                    .then((data) => {
+                        const record = data[index];
+                        renderDetail(record);
+                    })
+                    .catch((err) => {
+                        console.error(err);
+                        document.getElementById("detailTable").innerHTML =
+                            "<tr><td>加载失败</td></tr>";
+                    });
+            }
+
+            function renderDetail(record) {
+                const rows = Object.entries(record)
+                    .map(([key, val]) => {
+                        if (typeof val === "object" && val !== null) {
+                            val = JSON.stringify(val);
+                        }
+                        val = formatValue(key, val);
+                        return `<tr><th>${key}</th><td>${val}</td></tr>`;
+                    })
+                    .join("");
+                document.getElementById("detailTable").innerHTML = rows;
+            }
+
+            loadData(source, index);
+        </script>
+    </body>
+</html>
