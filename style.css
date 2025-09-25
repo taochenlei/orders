@@ -1,0 +1,90 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.main-btn {
+    font-size: 1.1rem;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    min-width: 120px;
+    transition: background 0.3s;
+}
+
+.main-btn:hover {
+    background-color: #0056b3;
+}
+
+.main-btn:active {
+    background-color: #003f82;
+}
+
+.main-btn-link {
+    text-decoration: none;
+}
+
+/* 表格 */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+    cursor: pointer;
+}
+
+th {
+    background: #f2f2f2;
+}
+
+th.sorted-asc::after {
+    content: " ↑";
+}
+
+th.sorted-desc::after {
+    content: " ↓";
+}
+
+tr:hover {
+    background: #f9f9f9;
+}
+
+td.num {
+    text-align: right;
+}
+
+/* 适配小屏幕 */
+@media (max-width: 600px) {
+    .btn-group {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .main-btn {
+        width: 80%;
+        font-size: 1.2rem;
+        padding: 16px;
+    }
+}
