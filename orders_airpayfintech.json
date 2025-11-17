@@ -12,17 +12,17 @@
         "pay_status": 200,
         "created_at": "2025-11-13T03:20:42.000000Z",
         "pay_time": "2025-11-13T03:21:14.000000Z",
-        "bpay_time": null,
-        "bpay_status": 200,
+        "bpay_time": "2025-11-17T07:00:19.000000Z",
+        "bpay_status": 300,
         "order_source": "PC",
         "anzsic_code": "7510",
         "long_name": "AUSTRALIAN TAXATION OFFICE",
         "short_name": "TAX OFFICE PAYMENTS",
-        "transaction_date": "2025-11-13T03:21:14.000000Z",
+        "transaction_date": "2025-11-17T07:00:19.000000Z",
         "pay_status_label": "Paid",
-        "pay_status_display": "processing",
+        "pay_status_display": "completed",
         "pay_service_label": "Wechat Pay",
-        "bill_status_label": "Awaiting Funds"
+        "bill_status_label": "Completed"
     },
     {
         "id": 8103,
