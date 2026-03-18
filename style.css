@@ -16,23 +16,30 @@ h1 {
 }
 
 .main-btn {
-    font-size: 1.1rem;
-    padding: 14px 20px;
+    font-size: 1.05rem;
+    padding: 14px 22px;
     border: none;
-    border-radius: 8px;
-    background-color: #007bff;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
     color: white;
     cursor: pointer;
-    min-width: 120px;
-    transition: background 0.3s;
+    min-width: 130px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: all 0.2s ease;
 }
 
 .main-btn:hover {
-    background-color: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, #4f8ef7, #2563eb);
 }
 
 .main-btn:active {
-    background-color: #003f82;
+    transform: translateY(1px);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 .main-btn-link {
