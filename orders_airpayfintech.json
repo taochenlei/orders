@@ -12,17 +12,17 @@
         "pay_status": 200,
         "created_at": "2026-03-04T06:01:49.000000Z",
         "pay_time": "2026-03-04T06:02:15.000000Z",
-        "bpay_time": null,
-        "bpay_status": 200,
+        "bpay_time": "2026-03-06T07:00:33.000000Z",
+        "bpay_status": 300,
         "order_source": "PC",
         "anzsic_code": "2811",
         "long_name": "GOLD COAST CITY COUNCIL - WATER",
         "short_name": "GCCC - WATER",
-        "transaction_date": "2026-03-04T06:02:15.000000Z",
+        "transaction_date": "2026-03-06T07:00:33.000000Z",
         "pay_status_label": "Paid",
-        "pay_status_display": "processing",
+        "pay_status_display": "completed",
         "pay_service_label": "Wechat Pay",
-        "bill_status_label": "Awaiting Funds"
+        "bill_status_label": "Completed"
     },
     {
         "id": 10682,
